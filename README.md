@@ -113,29 +113,33 @@ export MLFLOW_TRACKING_PASSWORD=b35f96a5e048fdb09da658cd5dcc2f3c37a8d2f2
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/mlproj
+    - Save the URI: 168540504769.dkr.ecr.eu-west-3.amazonaws.com/mlproj
 
 	
-## 4. Create EC2 machine (Ubuntu) 
+## 4. Create EC2 machine (Amazon Linux) 
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
 	
 	
 	#optinal
 
-	sudo apt-get update -y
+	sudo yum update -y
 
-	sudo apt-get upgrade
+	sudo yum upgrade
 	
 	#required
 
-	curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo yum install perl-Digest-SHA
 
-	sudo sh get-docker.sh
+	sudo yum install docker
 
 	sudo usermod -aG docker ubuntu
 
 	newgrp docker
+
+    sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm
+    
+    sudo yum install dotnet-sdk-6.0
 	
 # 6. Configure EC2 as self-hosted runner:
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
@@ -147,11 +151,11 @@ export MLFLOW_TRACKING_PASSWORD=b35f96a5e048fdb09da658cd5dcc2f3c37a8d2f2
 
     AWS_SECRET_ACCESS_KEY=
 
-    AWS_REGION = us-east-1
+    AWS_REGION = eu-west-3
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = 168540504769.dkr.ecr.eu-west-3.amazonaws.com
 
-    ECR_REPOSITORY_NAME = simple-app
+    ECR_REPOSITORY_NAME = mlproj
 
 
 
