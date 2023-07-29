@@ -3,12 +3,12 @@ from mlProject import logger
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from mlProject.entity.config_entity import DataTransformationConfig
+from dataclasses import dataclass
 
 
-
+@dataclass
 class DataTransformation:
-    def __init__(self, config: DataTransformationConfig):
-        self.config = config
+    config: DataTransformationConfig
 
     
     ## Note: You can add different data transformation techniques such as Scaler, PCA and all

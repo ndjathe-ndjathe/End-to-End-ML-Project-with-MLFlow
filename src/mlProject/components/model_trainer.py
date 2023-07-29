@@ -4,12 +4,11 @@ from mlProject import logger
 from sklearn.linear_model import ElasticNet
 import joblib
 from mlProject.entity.config_entity import ModelTrainerConfig
+from dataclasses import dataclass
 
-
-
+@dataclass
 class ModelTrainer:
-    def __init__(self, config: ModelTrainerConfig):
-        self.config = config
+    config: ModelTrainerConfig
 
     
     def train(self):
