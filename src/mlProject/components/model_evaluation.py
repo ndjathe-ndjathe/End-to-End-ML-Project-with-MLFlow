@@ -10,17 +10,17 @@ from mlProject.entity.config_entity import ModelEvaluationConfig
 from mlProject.utils.common import save_json
 from pathlib import Path
 from dataclasses import dataclass
+from mlProject import logger
 
 @dataclass
 class ModelEvaluation:
     config: ModelEvaluationConfig
 
-    def eval_metrics(self,actual, pred):
+    def eval_metrics(self, actual, pred):
         rmse = np.sqrt(mean_squared_error(actual, pred))
         mae = mean_absolute_error(actual, pred)
         r2 = r2_score(actual, pred)
         return rmse, mae, r2
-    
 
     def log_into_mlflow(self):
 
@@ -30,13 +30,11 @@ class ModelEvaluation:
         test_x = test_data.drop([self.config.target_column], axis=1)
         test_y = test_data[[self.config.target_column]]
 
-
         mlflow.set_registry_uri(self.config.mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
 
         with mlflow.start_run():
-
             predicted_qualities = model.predict(test_x)
 
             (rmse, mae, r2) = self.eval_metrics(test_y, predicted_qualities)
@@ -51,6 +49,7 @@ class ModelEvaluation:
             mlflow.log_metric("r2", r2)
             mlflow.log_metric("mae", mae)
 
+            logger.info(f"Value of tracking url type store : {tracking_url_type_store}")
 
             # Model registry does not work with file store
             if tracking_url_type_store != "file":

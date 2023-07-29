@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Franklin%20NDJATHE/Documents/projects/End-to-End-ML-Project-with-MLFlow/mlruns/0/cf0b2ec6a5af470291a78f256d11c404/artifacts
+end_time: 1690660210619
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cf0b2ec6a5af470291a78f256d11c404
+run_name: learned-lark-732
+run_uuid: cf0b2ec6a5af470291a78f256d11c404
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690660208311
+status: 3
+tags: []
+user_id: Franklin NDJATHE

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Franklin%20NDJATHE/Documents/projects/End-to-End-ML-Project-with-MLFlow/mlruns/0/252a0a78c6a74f60a13c38ade582b588/artifacts
+end_time: 1690659696940
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 252a0a78c6a74f60a13c38ade582b588
+run_name: persistent-pig-162
+run_uuid: 252a0a78c6a74f60a13c38ade582b588
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1690659694712
+status: 3
+tags: []
+user_id: Franklin NDJATHE
